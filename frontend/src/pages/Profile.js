@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Navbar from "../components/Navbar";
+import API from "../Api";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/user/me", {
+    API.get("/user/me", {
       headers: { Authorization: localStorage.getItem("token") }
     }).then(res => setUser(res.data));
   }, []);

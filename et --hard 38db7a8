@@ -1,0 +1,8 @@
+[33mcc5df90[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m probably final
+[33m020a544[m debug ping
+[33m45dbf2c[m Fix render binding + cors
+[33md51d4f2[m Enable public CORS
+[33m053ef3d[m Bind Flask to Render port
+[33m7065a4f[m Add flask-bcrypt dependency
+[33m8fa2553[m Add backend requirements
+[33m38db7a8[m Initial full stack deployment ready

@@ -10,8 +10,7 @@ from routes.user_routes import user
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
-
+CORS(app, origins=["https://your-vercel-url.vercel.app"])
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo.init_app(app)
 
