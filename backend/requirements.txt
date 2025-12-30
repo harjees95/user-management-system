@@ -5,3 +5,4 @@ flask-pymongo
 python-dotenv
 pyjwt
 gunicorn
+pymongo

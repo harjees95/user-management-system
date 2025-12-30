@@ -30,6 +30,10 @@ export default function AdminDashboard() {
     });
     loadUsers();
   };
+  const changeRole = async (id, role) => {
+    await API.put(`/admin/role/${id}`, { role });
+    loadUsers();
+  };
 
   return (
   <>
@@ -61,23 +65,33 @@ export default function AdminDashboard() {
                   {u.status ? "Active" : "Inactive"}
                 </span>
               </td>
-              <td className="p-4">
+              <td className="p-4 space-x-2">
                 {u.status ? (
                   <button
                     onClick={() => deactivate(u._id)}
-                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-1 rounded-lg"
+                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg"
                   >
                     Deactivate
                   </button>
                 ) : (
                   <button
                     onClick={() => activate(u._id)}
-                    className="bg-green-500 hover:bg-green-600 text-white px-4 py-1 rounded-lg"
+                    className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg"
                   >
                     Activate
                   </button>
                 )}
+
+                <button
+                  onClick={() =>
+                    changeRole(u._id, u.role === "admin" ? "user" : "admin")
+                  }
+                  className="bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1 rounded-lg"
+                >
+                  {u.role === "admin" ? "Make User" : "Make Admin"}
+                </button>
               </td>
+
             </tr>
           ))}
         </tbody>
