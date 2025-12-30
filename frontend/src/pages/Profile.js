@@ -11,17 +11,28 @@ export default function Profile() {
     }).then(res => setUser(res.data));
   }, []);
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <p className="text-center mt-10 text-gray-400">Loading...</p>;
 
-  return (
-    <>
-      <Navbar />
-      <div style={{padding:20}}>
-        <h2>My Profile</h2>
-        <p><b>Name:</b> {user.fullName}</p>
-        <p><b>Email:</b> {user.email}</p>
-        <p><b>Role:</b> {user.role}</p>
+return (
+  <>
+    <Navbar />
+      <div className="min-h-screen bg-gray-100">
+    <div className="max-w-xl mx-auto pt-20">
+      <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+        <div className="w-24 h-24 rounded-full bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold mx-auto mb-4">
+          {user.fullName.charAt(0)}
+        </div>
+
+        <h2 className="text-2xl font-bold text-gray-800">{user.fullName}</h2>
+        <p className="text-gray-500 mb-4">{user.email}</p>
+
+        <span className="inline-block px-4 py-1 rounded-full bg-indigo-100 text-indigo-700 font-semibold">
+          {user.role.toUpperCase()}
+        </span>
       </div>
-    </>
-  );
+    </div>
+  </div>    
+  </>
+);
+
 }
